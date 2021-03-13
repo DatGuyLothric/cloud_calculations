@@ -24,6 +24,9 @@ jobs:
           java-version: 14
       - name: Building project
         run: mvn -B package --file pom.xml
+        env:
+          DB_HOST: localhost
+          DB_NAME: db
       - name: Docker login
         run: docker login ghcr.io --username $GITHUB_ACTOR --password ${{ secrets.PAT }}
       - name: Build Docker image

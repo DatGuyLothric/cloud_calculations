@@ -2,11 +2,9 @@ name: CI
 on:
   push:
     branches-ignore:
-      - develop
       - main
   pull_request:
     branches:
-      - develop
       - main
 jobs:
   build:
@@ -28,3 +26,6 @@ jobs:
         with:
           java-version: 14
       - run: mvn -B package --file pom.xml
+        env:
+          DB_HOST: localhost
+          DB_NAME: db
